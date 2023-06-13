@@ -1,0 +1,111 @@
+{
+  "psicologos": [
+    {
+      "nombre": "Gabriela ",
+      "apellido": "Seligmann",
+      "sexo": "Femenino",
+      "telefono": "22335577",
+      "tipo_de_terapia": "Terapia Grupal",
+      "email": "gaby@gaby.com",
+      "clave": "vdgfgh6grtgfgrt",
+      "provincia": "Entre Ríos",
+      "localidad": "entre rios",
+      "numero_matricula": "3334456",
+      "id": 1
+    },
+    {
+      "nombre": "Priscila ",
+      "apellido": "Seligmann",
+      "sexo": "Femenino",
+      "telefono": "22335577",
+      "tipo_de_terapia": "Terapia Grupal",
+      "email": "gaby@gaby.com",
+      "clave": "vdgfgh6grtgfgrt",
+      "provincia": "Entre Ríos",
+      "localidad": "entre rios",
+      "numero_matricula": "3334456",
+      "id": 2
+    },
+    {
+      "nombre": "Natalia ",
+      "apellido": "Seligmann",
+      "sexo": "Femenino",
+      "telefono": "22335577",
+      "tipo_de_terapia": "Terapia Grupal",
+      "email": "gaby@gaby.com",
+      "clave": "vdgfgh6grtgfgrt",
+      "provincia": "Entre Ríos",
+      "localidad": "entre rios",
+      "numero_matricula": "3334456",
+      "id": 3
+    }
+  ],
+  
+  "pacientes": [
+    {
+      "id": 1,
+      "nombre": "Sebastian",
+      "apellido": "Gómez",
+      "sexo": "masculino",
+      "telefono": 223223223,
+      "email": "jgomez@gmail.com",
+      "clave": "123456",
+      "terapia": "Pareja",
+      "provincia": "Buenos Aires",
+      "localidad": "Lanus",
+      "plan": "basico",
+      "suscripcion": true,
+      "editando": false
+    },
+    {
+      "id": 2,
+      "nombre": "Roberto",
+      "apellido": "Gómez",
+      "sexo": "masculino",
+      "telefono": 223223223,
+      "email": "jgomez@gmail.com",
+      "clave": "123456",
+      "terapia": "Pareja",
+      "provincia": "Buenos Aires",
+      "localidad": "Lanus",
+      "plan": "intermedio",
+      "suscripcion": true,
+      "editando": false
+    },
+    {
+      "nombre": "ernesto",
+      "apellido": "perez",
+      "sexo": "Masculino",
+      "telefono": "777777777",
+      "terapia": "familiar",
+      "email": "ernesto@ernesto.com",
+      "clave": "ggggg44ggt5rhr",
+      "provincia": "Buenos Aires",
+      "localidad": "tandil",
+      "id": 3
+    }
+  ],
+  "Planes": [
+    {
+      "nombre": "Standard",
+      "descripcion": "Descripción del plan Standard",
+      "precio": 1000,
+      "id": 1,
+      "editando": true
+    },
+    {
+      "nombre": "Gold",
+      "descripcion": "Descripcion del plan Gold",
+      "precio": 3000,
+      "id": 2,
+      "editando": true
+    },
+    {
+      "nombre": "Premium",
+      "descripcion": "Descripcion del plan Premium",
+      "precio": 5000,
+      "id": 3,
+      "editando": true
+    }
+  ]
+}

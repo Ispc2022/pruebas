@@ -1,0 +1,183 @@
+<title>Registro de Pacientes Ψ</title>
+<div class="container" style="text-align: center">
+  <h2 style="font-weight: lighter">Registro de Pacientes</h2>
+</div>
+
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onEnviar($event, user)">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        formControlName="nombre"
+        [(ngModel)]="user.nombre"
+        [class.border-danger]="nombreValid"
+      />
+      <div *ngIf="nombre?.errors && nombre?.touched">
+        <p *ngIf="nombre?.hasError('required')" class="text-danger">
+          El nombre es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input
+        type="text"
+        class="form-control"
+        id="apellido"
+        formControlName="apellido"
+        [(ngModel)]="user.apellido"
+        [class.border-danger]="apellidoValid"
+      />
+      <div *ngIf="apellido?.errors && apellido?.touched">
+        <p *ngIf="apellido?.hasError('required')" class="text-danger">
+          El apellido es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input
+        type="text"
+        class="form-control"
+        id="dni"
+        formControlName="dni"
+        [(ngModel)]="user.dni"
+        [class.border-danger]="dniValid"
+      />
+      <div *ngIf="dni?.errors && dni?.touched">
+        <p *ngIf="dni?.hasError('required')" class="text-danger">
+          El dni es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="sexo">Sexo</label>
+      <select
+        class="form-control"
+        id="sexo"
+        formControlName="sexo"
+        [(ngModel)]="user.sexo"
+        [class.border-danger]="sexoValid"
+      >
+        <option value="" disabled selected>Seleccione el sexo</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+      </select>
+      <div *ngIf="sexo?.errors && sexo?.touched">
+        <p *ngIf="sexo?.hasError('required')" class="text-danger">
+          El sexo es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="terapia">Terapia</label>
+      <input
+        type="text"
+        class="form-control"
+        id="terapia"
+        formControlName="terapia"
+        [(ngModel)]="user.id_terapia_id"
+        [class.border-danger]="terapiaValid"
+      />
+      <div *ngIf="terapia?.errors && terapia?.touched">
+        <p *ngIf="terapia?.hasError('required')" class="text-danger">
+          El campo tipo de terapia es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="provincia">Provincia</label>
+      <input
+        type="text"
+        class="form-control"
+        id="provincia"
+        formControlName="provincia"
+        [(ngModel)]="user.provincia_id"
+        [class.border-danger]="provinciaValid"
+      />
+      <div *ngIf="provincia?.errors && provincia?.touched">
+        <p *ngIf="provincia?.hasError('required')" class="text-danger">
+          Provincia es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="localidad">Localidad</label>
+      <input
+        type="text"
+        class="form-control"
+        id="localidad"
+        formControlName="localidad"
+        [(ngModel)]="user.localidad"
+        [class.border-danger]="localidadValid"
+      />
+      <div *ngIf="localidad?.errors && localidad?.touched">
+        <p *ngIf="localidad?.hasError('required')" class="text-danger">
+          La Localidad es requerida.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefono"
+        formControlName="telefono"
+        [(ngModel)]="user.telefono"
+        [class.border-danger]="telefonoValid"
+      />
+      <div *ngIf="telefono?.errors && telefono?.touched">
+        <p *ngIf="telefono?.hasError('required')" class="text-danger">
+          El teléfono es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        [(ngModel)]="user.email"
+        [class.border-danger]="emailValid"
+      />
+      <div *ngIf="email?.errors && email?.touched">
+        <p *ngIf="email?.hasError('required')" class="text-danger">
+          El Email es requerido.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+        [(ngModel)]="user.password"
+        [class.border-danger]="passwordValid"
+      />
+      <div *ngIf="password?.errors && password?.touched">
+        <p *ngIf="password?.hasError('required')" class="text-danger">
+          La Contraseña es requerida.
+        </p>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+  </form>
+</div>

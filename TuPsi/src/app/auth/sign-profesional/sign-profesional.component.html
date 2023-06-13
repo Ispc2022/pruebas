@@ -1,0 +1,113 @@
+<title>Registro de Profesionales Ψ</title>
+<body>
+  <div class="container" style="text-align: center;">
+    <h2 style="font-weight: lighter;">Registro de Profesionales</h2>
+    </div>
+
+  <div class="container">
+    <form class="row g-3 mt-3" [formGroup]="formProfesional" (ngSubmit)="createProfesional()">
+      <div class="col-md-6">
+        <label for="inputName" class="form-label text-primary">*Nombre</label>
+        <input formControlName="nombre" type="text" class="form-control" id="inputName" required />
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputLastName" class="form-label text-primary">*Apellido</label>
+        <input formControlName="apellido" type="text" class="form-control" id="inputLastName" required />
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputEmail" class="form-label text-primary">*Email</label>
+        <input formControlName="email" type="email" class="form-control" id="inputEmail" required />
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPhone" class="form-label text-primary">*Teléfono</label>
+        <input formControlName="telefono" type="number" class="form-control" id="inputPhone" required />
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPassword" class="form-label text-primary" minlength="6" maxlength="15">*Contraseña</label>
+        <input formControlName="clave" type="password" class="form-control" id="inputPassword" required />
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputTherapy" class="form-label text-primary">*Tipos de terapia</label>
+        <input formControlName="tipo_de_terapia" type="text" class="form-control" id="inputTherapy" placeholder="Terapia Familiar...Terapia Individual..." required />
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputMatricula" class="form-label text-primary">*Matrícula</label>
+        <input formControlName="numero_matricula" type="text" class="form-control" id="inputMatricula" required />
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputSexo" class="form-label text-primary">Sexo</label>
+        <select formControlName="sexo" id="inputSexo" class="form-select">
+          <option value="">Elegir...</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputState" class="form-label text-primary">*Provincia</label>
+        <select formControlName="provincia" id="inputState" class="form-select" required>
+          <option value="">Elegir...</option>
+          <option value="Buenos Aires">Buenos Aires</option>
+          <option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+          <option value="Catamarca">Catamarca</option>
+          <option value="Chaco">Chaco</option>
+          <option value="Chubut">Chubut</option>
+          <option value="Córdoba">Córdoba</option>
+          <option value="Corrientes">Corrientes</option>
+          <option value="Entre Ríos">Entre Ríos</option>
+          <option value="Formosa">Formosa</option>
+          <option value="Jujuy">Jujuy</option>
+          <option value="La Pampa">La Pampa</option>
+          <option value="La Rioja">La Rioja</option>
+          <option value="Mendoza">Mendoza</option>
+          <option value="Misiones">Misiones</option>
+          <option value="Neuquén">Neuquén</option>
+          <option value="Río Negro">Río Negro</option>
+          <option value="Salta">Salta</option>
+          <option value="San Juan">San Juan</option>
+          <option value="San Luis">San Luis</option>
+          <option value="Santa Cruz">Santa Cruz</option>
+          <option value="Santa Fe">Santa Fe</option>
+          <option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+          <option value="Tucumán">Tucumán</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label text-primary">*Localidad</label>
+        <input formControlName="localidad" type="text" class="form-control" id="inputCity" required />
+      </div>
+
+      <div class="col-12">
+        <div class="form-check">
+          <input formControlName="acepta_terminos" type="checkbox" id="checkTerms" class="form-check-input" required />
+          <label class="form-check-label" for="checkTerms">Acepto los términos</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Registrarme</button>
+      </div>
+    </form>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div *ngIf="successMessage" class="alert alert-success" role="alert">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+</body>

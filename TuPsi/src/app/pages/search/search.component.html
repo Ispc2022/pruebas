@@ -1,0 +1,44 @@
+<div class="container" style="text-align: center;">
+  <h2 style="font-weight: lighter;">Buscar Profesional</h2>
+</div>
+
+<div class="container">
+  <form class="row g-3 mt-3">
+    <div class="col-6">
+      <label for="inputTerapia" class="form-label text-primary">Tipo de terapia</label>
+      <select id="inputTerapia" class="form-select" name="inputTerapia" [(ngModel)]="tipoTerapiaSeleccionada" (change)="filtrarProfesionales()">
+        <option value="">Elegir...</option>
+        <option *ngFor="let tipoTerapia of tiposTerapiaDisponibles">{{ tipoTerapia }}</option>
+      </select>
+    </div>
+
+    <div class="col-6">
+      <label for="inputProvincia" class="form-label text-primary">Provincia</label>
+      <select id="inputProvincia" class="form-select" name="inputProvincia" [(ngModel)]="provinciaSeleccionada" (change)="filtrarProfesionales()">
+        <option value="">Elegir...</option>
+        <option *ngFor="let provincia of provinciasDisponibles">{{ provincia }}</option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <button type="button" class="btn btn-primary" (click)="resetearFiltros()">Restablecer</button>
+    </div>
+  </form>
+</div>
+
+<div class="row" style="margin-top: 2rem;margin-bottom: 5rem;">
+  <div class="col-lg-4" *ngFor="let profesional of profesionalesFiltrados; let i = index">
+    <!-- Aquí va la estructura de la card con los datos del profesional -->
+    <div class="card" [ngStyle]="getCardStyle(i)">
+      <div class="card-body">
+        <h5 class="card-title">{{ profesional.nombre }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ profesional.numero_matricula }}</h6>
+        <p class="card-text">{{ profesional.tipo_de_terapia }}</p>
+        <p class="card-text">Ubicación: {{ profesional.localidad }}</p>
+        <p class="card-text">Teléfono: {{ profesional.telefono }}</p>
+        <a href="#" class="card-link">Más información</a>
+        <a href="#" class="card-link">Contactar</a>
+      </div>
+    </div>
+  </div>
+</div>

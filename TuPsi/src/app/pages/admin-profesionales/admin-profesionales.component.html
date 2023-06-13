@@ -1,0 +1,117 @@
+<div class="container text-center">
+  <h2 style="font-weight: lighter;">Administrar Profesionales</h2>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 bg-light bg-opacity-25 p-2 border-1">
+      <table class="table table-hover align-items-center" *ngIf="tieneProfesionales">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Tipo de Terapia</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contraseña</th>
+            <th scope="col">Provincia</th>
+            <th scope="col">Localidad</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-light" *ngFor="let item of Profesionales">
+            <td>
+              <input type="text" class="form-control" [value]="item.id" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <input type="text" class="form-control" [value]="item.nombre" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <input type="text" class="form-control" [value]="item.apellido" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <select id="inputSexo" class="form-control" [value]="item.sexo" [disabled]="!item.editando">
+                <option selected>Elegir...</option>
+                <option>Femenino</option>
+                <option>Masculino</option>
+                <option>Otro</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" class="form-control" [value]="item.telefono" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                [value]="item.tipo_de_terapia"
+                [readonly]="!item.editando"
+              />
+            </td>
+            <td>
+              <input type="text" class="form-control" [value]="item.email" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <input type="password" class="form-control" [value]="item.clave" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <input type="text" class="form-control" [value]="item.provincia" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <input type="text" class="form-control" [value]="item.localidad" [readonly]="!item.editando" />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                [value]="item.numero_matricula"
+                [readonly]="!item.editando"
+              />
+            </td>
+            <td>
+              <div class="d-flex">
+                <div *ngIf="!item.editando" class="mr-2">
+                  <button type="button" class="btn btn-secondary" (click)="editarProfesional(item)">
+                    Editar
+                  </button>
+                </div>
+                <div *ngIf="item.editando" class="mr-2">
+                  <button type="button" class="btn btn-success" (click)="guardarCambios(item)">
+                    Guardar
+                  </button>
+                </div>
+                <div *ngIf="item.editando" class="mr-2">
+                  <button type="button" class="btn btn-secondary" (click)="cancelarEdicion(item)">
+                    Cancelar
+                  </button>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-danger" (click)="item.id ? eliminarProfesional(item.id) : null">
+                    Borrar
+                  </button>
+                  <hr>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="modal-dialog modal-dialog-centered" *ngIf="!tieneProfesionales">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:rgb(55, 108, 55);color: white; width: 50%;">
+            <h5 class="modal-title">TuPsi Admin</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div style="background-color:rgb(188, 197, 199);color: black;font-weight: 600; width: 50%;" class="modal-body">
+            <p>No hay profesionales registrados actualmente</p>
+          </div>
+          <div class="modal-footer" style="background-color:rgb(188, 197, 199);color: white; width: 50%;">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/">Volver</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

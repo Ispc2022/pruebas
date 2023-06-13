@@ -1,0 +1,16 @@
+<div class="container" style="text-align: center;">
+    <h2 style="font-weight: lighter;">Nuestros Planes</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6" *ngFor="let plan of planes">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ plan.nombre }}</h5>
+            <p class="card-text">{{ plan.descripcion }}</p>
+            <p class="card-text">Precio: {{ plan.precio }}</p>
+            <button class="btn btn-primary">Suscribirme</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

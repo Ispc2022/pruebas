@@ -1,0 +1,65 @@
+<title>Inicio de sesión Ψ</title>
+<body class="bg-primary d-flex justify-content-center align-items-center vh-100">
+  <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+    <div class="d-flex justify-content-center">
+      <img src="../../../assets/img/cuenta.png" alt="login-icon" style="height: 7rem" />
+    </div>
+
+    <div class="text-center fs-1 fw-bold text-primary">Login</div>
+
+    <form [formGroup]="form" (ngSubmit)="onLogin($event)">
+      <div class="input-group mt-4">
+        <div class="input-group-text"></div>
+        <input
+          class="form-control bg-light"
+          type="text"
+          placeholder="Email"
+          formControlName="mail"
+          required
+          [ngClass]="{
+            'is-invalid': MailValid,
+            'is-valid': Mail?.valid && (Mail?.dirty || Mail?.touched)
+          }"
+        />
+      </div>
+      <div *ngIf="MailValid" class="text-danger mt-2">
+        <div class="border border-danger p-2">
+          La dirección de correo electrónico es requerida
+        </div>
+      </div>
+      <div
+        *ngIf="form.controls['mail'].errors?.['email'] && (Mail?.dirty || Mail?.touched)"
+        class="text-danger mt-2"
+      >
+        <div class="border border-danger p-2">
+          El correo electrónico no es válido
+        </div>
+      </div>
+
+      <div class="input-group mt-4">
+        <div class="input-group-text"></div>
+        <input
+          class="form-control bg-light"
+          type="password"
+          placeholder="Contraseña"
+          formControlName="password"
+          required
+          [ngClass]="{
+            'is-invalid': PasswordValid,
+            'is-valid': Password?.valid && (Password?.dirty || Password?.touched)
+          }"
+        />
+      </div>
+      <div *ngIf="PasswordValid" class="text-danger mt-2">
+        La contraseña es requerida
+      </div>
+      <div
+        *ngIf="form.controls['password'].errors?.['minlength'] && (Password?.dirty || Password?.touched)"
+        class="text-danger mt-2"
+      >
+        La contraseña debe tener al menos 8 caracteres
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Iniciar sesión</button>
+    </form>
+  </div>
+</body>
